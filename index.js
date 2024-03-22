@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -12,10 +13,24 @@ const PRIVATE_APP_ACCESS = process.env.ACCESS_TOKEN;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 app.get('/', async (req, res) => {
-    res.json({
-        "status": "success"
-    })
+    const companies = 'https://api.hubspot.com/crm/v3/objects/companies';
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    }
+    try {
+        const resp = await axios.get(companies, { headers });
+        const data = resp.data.results;
+        res.json(data);
+        //res.render('contacts', { title: 'Contacts | HubSpot APIs', data });      
+    } catch (error) {
+        console.error(error);
+    }
 });
+
+// name
+// cvr_number
+// pot_number
 
 // * Code for Route 1 goes here
 
@@ -31,20 +46,6 @@ app.get('/', async (req, res) => {
 * * This is sample code to give you a reference for how you should structure your calls. 
 
 * * App.get sample
-app.get('/contacts', async (req, res) => {
-    const contacts = 'https://api.hubspot.com/crm/v3/objects/contacts';
-    const headers = {
-        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-        'Content-Type': 'application/json'
-    }
-    try {
-        const resp = await axios.get(contacts, { headers });
-        const data = resp.data.results;
-        res.render('contacts', { title: 'Contacts | HubSpot APIs', data });      
-    } catch (error) {
-        console.error(error);
-    }
-});
 
 * * App.post sample
 app.post('/update', async (req, res) => {
