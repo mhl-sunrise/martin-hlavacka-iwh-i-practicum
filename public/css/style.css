@@ -96,3 +96,14 @@ button {
     padding: 10px;
     height: auto;
 }
+
+.removal {
+    display: inline-block;
+}
+.return {
+    background-color: white;
+    padding-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}

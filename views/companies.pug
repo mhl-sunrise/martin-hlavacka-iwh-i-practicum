@@ -23,6 +23,9 @@ html
                         p.card__cvr 
                             b CVR: 
                             | #{company.properties.cvr_number}
-                        button Edit this company
-                        button.delete Delete this company
+
+                        a(href=`/open-cobj?id=${company.id}`)
+                            button Edit this company
+                        form.removal(action=`/delete-cobj?id=${company.id}`, method="delete")
+                            button.delete Delete this company
                             

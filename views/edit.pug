@@ -1,0 +1,20 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body   
+        div.container
+            a(href="/").return ⇦ Return to all companies 
+            div.create
+                h1 Edit company
+                form(action="/create-cobj", method="post")
+                    input(type="text" name="name" placeholder="Insert company name" value=data.properties.name required)
+                    input(type="text" name="pot" placeholder="Insert POT number" value=data.properties.pot_number required)
+                    input(type="text" name="cvr" placeholder="Insert CVR number" value=data.properties.cvr_number required)
+                    button Save changes
+                    form.removal(action="/delete-cobj", method="delete")
+                            input(type="hidden" name="id" value=data.id )
+                            button.delete Delete this company
+            
