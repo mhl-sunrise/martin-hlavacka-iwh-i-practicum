@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
     try {
         const resp = await axios.get(companies, { headers });
         const data = resp.data.results;
-        res.render('companies', { title: 'Custom Object Data | Integrating With HubSpot I Practicum', data });      
+        res.render('homepage', { title: 'Custom Object Data | Integrating With HubSpot I Practicum', data });      
     } catch (error) {
         console.error(error);
     }
