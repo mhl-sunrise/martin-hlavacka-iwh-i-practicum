@@ -4,17 +4,25 @@ html
         title= `${title}`
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
-    body    
-        .cards 
-            each company in data
-                .card 
-                    h2.card__name #{company.properties.name}
-                    p.card__pot 
-                        b POT: 
-                        | #{company.properties.pot_number}
-                    p.card__cvr 
-                        b CVR: 
-                        | #{company.properties.cvr_number}
-                    button Edit this company
-                    button.delete Delete this company
-                        
+    body   
+        div.container
+            div.create
+                h1 Create new company 
+                form(action="/create-cobj", method="post")
+                    input(type="text" name="name" placeholder="Insert company name" required)
+                    input(type="text" name="pot" placeholder="Insert POT number" required)
+                    input(type="text" name="cvr" placeholder="Insert CVR number" required)
+                    button Create new company
+            .cards 
+                each company in data
+                    .card 
+                        h2.card__name #{company.properties.name}
+                        p.card__pot 
+                            b POT: 
+                            | #{company.properties.pot_number}
+                        p.card__cvr 
+                            b CVR: 
+                            | #{company.properties.cvr_number}
+                        button Edit this company
+                        button.delete Delete this company
+                            

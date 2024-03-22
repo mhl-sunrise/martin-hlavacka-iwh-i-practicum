@@ -31,9 +31,27 @@ app.get('/', async (req, res) => {
     }
 });
 
-// name
-// cvr_number
-// pot_number
+app.post('/create-cobj', async (req, res) => {
+    const update = {
+        properties: {
+            "name": req.body.name,
+            "pot_number": req.body.pot,
+            "cvr_number": req.body.cvr
+        }
+    }
+    const companies = 'https://api.hubspot.com/crm/v3/objects/companies';
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    }
+    try {
+        const resp = await axios.post(companies, update, { headers });
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 
 // * Code for Route 1 goes here
 

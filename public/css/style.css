@@ -7,8 +7,18 @@ body, * {
     box-sizing: border-box;
 }
 
+.container {
+    width: 1200px;
+    margin: 0px auto;
+    background-color: #ececec;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 h1 {
-    margin: 1rem;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 h2 {
@@ -24,18 +34,12 @@ h2::after {
     margin-top: 10px;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
 .card {
     flex-basis: 31%;
-    margin: 1rem 0.4rem;
-    padding: 2rem;
+    padding: 20px;
     border: solid 1px lightgrey;
+    margin-top: -1px;
+    background-color: white;
 }
 
 .card__email {
@@ -78,4 +82,17 @@ button {
 .delete {
     background-color: #cb1f1f;
     margin-left: 10px;
+}
+
+.create {
+    padding: 20px;
+    border: solid 1px lightgrey;
+}
+
+.create input {
+    width: 100%;
+    border: solid 1px lightgrey;
+    border-radius: 3px;
+    padding: 10px;
+    height: auto;
 }
