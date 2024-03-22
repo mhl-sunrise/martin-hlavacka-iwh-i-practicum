@@ -84,12 +84,13 @@ button {
     margin-left: 10px;
 }
 
-.create {
+.create, .edit {
     padding: 20px;
     border: solid 1px lightgrey;
 }
 
-.create input {
+.create input,
+.edit input {
     width: 100%;
     border: solid 1px lightgrey;
     border-radius: 3px;
@@ -106,4 +107,13 @@ button {
     display: block;
     text-decoration: none;
     color: black;
+}
+.removal-flexible {
+    position: absolute;
+    bottom: 20px;
+    left: 155px;
+}
+
+.edit {
+    position: relative;
 }

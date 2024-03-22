@@ -59,25 +59,25 @@ app.post('/create-cobj', async (req, res) => {
 });
 
 /** Delete existing company */
-app.delete('/delete-cobj', async (req, res) => {
-
-
-    // const companies = 'https://api.hubspot.com/crm/v3/objects/companies/' + req.body.id;
-    // const headers = {
-    //     Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-    //     'Content-Type': 'application/json'
-    // }
-    // try {
-    //     const resp = await axios.delete(companies, { headers });
-    //     res.redirect('/');
-    // } catch (error) {
-    //     console.error(error);
-    // }
+app.post('/delete-cobj/:id', async (req, res) => {
+    const companyId = parseInt(req.params.id);
+    const companies = 'https://api.hubspot.com/crm/v3/objects/companies/' + companyId;
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    }
+    try {
+        const resp = await axios.delete(companies, { headers });
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 /** Open existing company */
-app.get('/open-cobj', async (req, res) => {
-    const company = 'https://api.hubspot.com/crm/v3/objects/companies/' + req.query.id + "?properties=name,pot_number,cvr_number"
+app.get('/open-cobj/:id', async (req, res) => {
+    const companyId = parseInt(req.params.id);
+    const company = 'https://api.hubspot.com/crm/v3/objects/companies/' + companyId + "?properties=name,pot_number,cvr_number"
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
