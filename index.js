@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
     try {
         const resp = await axios.get(companies, { headers });
         const data = resp.data.results;
-        res.render('companies', { title: 'All companies', data });      
+        res.render('companies', { title: 'Custom Object Data | Integrating With HubSpot I Practicum', data });      
     } catch (error) {
         console.error(error);
     }
@@ -38,7 +38,7 @@ app.get('/', async (req, res) => {
 
 /** Create new company */
 app.get('/create-cobj', async (req, res) => {
-    res.render('create', { title: 'Create new company'});
+    res.render('create', { title: 'Create Custom Object Form | Integrating With HubSpot I Practicum'});
 });
 
 /** Store new company */
@@ -90,7 +90,7 @@ app.get('/open-cobj/:id', async (req, res) => {
     try {
         const resp = await axios.get(company, { headers });
         const data = resp.data;
-        res.render('edit', { title: 'Edit company', data});      
+        res.render('updates', { title: 'Update Custom Object Form | Integrating With HubSpot I Practicum', data});      
     } catch (error) {
         console.error(error);
     }
