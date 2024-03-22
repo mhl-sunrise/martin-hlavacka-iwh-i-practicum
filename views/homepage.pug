@@ -6,22 +6,30 @@ html
         link(rel="stylesheet", href="/css/style.css")
     body   
         div.container
+            div.info 
+                p My test account did not have access to Custom Objects, so I followed your documentation and used Company object instead, as described here: 
+                a(href="https://app-eu1.hubspot.com/academy/144354397/tracks/1092124/1093824/5493?language=en") https://app-eu1.hubspot.com/academy/144354397/tracks/1092124/1093824/5493?language=en
             div.create
                 h1 Existing companies
                     a(href="/create-cobj").createbtn Create new company
             .cards 
-                each company in data
-                    .card 
-                        h2.card__name #{company.properties.name}
-                        p.card__pot 
-                            b POT: 
-                            | #{company.properties.pot_number}
-                        p.card__cvr 
-                            b CVR: 
-                            | #{company.properties.cvr_number}
-
-                        a(href=`/open-cobj/${company.id}`)
-                            button Edit this company
-                        form.removal(action=`/delete-cobj/${company.id}`, method="post")
-                            button.delete Delete this company
-                            
+                table.all 
+                    thead
+                        tr 
+                            th COMPANY NAME
+                            th POT NUMBER
+                            th CVR NUMBER 
+                            th EDIT COMPANY 
+                            th DELETE COMPANY
+                    tbody
+                        each company in data
+                            tr 
+                                td #{company.properties.name}
+                                td #{company.properties.pot_number}
+                                td #{company.properties.cvr_number}
+                                td
+                                    a(href=`/open-cobj/${company.id}`)
+                                        button Edit this company
+                                td 
+                                    form.removal(action=`/delete-cobj/${company.id}`, method="post")
+                                        button.delete Delete this company
