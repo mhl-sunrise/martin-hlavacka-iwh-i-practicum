@@ -85,7 +85,6 @@ app.get('/open-cobj/:id', async (req, res) => {
     try {
         const resp = await axios.get(company, { headers });
         const data = resp.data;
-        console.log(data);
         res.render('edit', { title: 'Companies | Martin Hlavacka', data});      
     } catch (error) {
         console.error(error);
@@ -93,6 +92,28 @@ app.get('/open-cobj/:id', async (req, res) => {
 });
 
 /** Update existing company */
+app.post('/update-cobj/:id', async (req, res) => {
+    const companyId = parseInt(req.params.id);
+    const company = 'https://api.hubspot.com/crm/v3/objects/companies/' + companyId
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    }
+    const update = {
+        properties: {
+            "name": req.body.name,
+            "pot_number": req.body.pot,
+            "cvr_number": req.body.cvr
+        }
+    }
+    try {
+        const resp = await axios.patch(company, update, { headers });
+        const data = resp.data;
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 /** Start the app */
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));

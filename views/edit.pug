@@ -9,8 +9,7 @@ html
             a(href="/").return ⇦ Return to all companies 
             div.edit
                 h1 Edit company
-                form(action="/update-cobj", method="post")
-                    input(type="hidden" name="id" placeholder="Insert company id" value=data.id required)
+                form(action=`/update-cobj/${data.id}`, method="post")
                     input(type="text" name="name" placeholder="Insert company name" value=data.properties.name required)
                     input(type="text" name="pot" placeholder="Insert POT number" value=data.properties.pot_number required)
                     input(type="text" name="cvr" placeholder="Insert CVR number" value=data.properties.cvr_number required)
