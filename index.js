@@ -1,3 +1,7 @@
+/**
+ * Note: 
+ */
+
 require('dotenv').config();
 
 const express = require('express');
@@ -11,9 +15,9 @@ app.use(express.json());
 
 const PRIVATE_APP_ACCESS = process.env.ACCESS_TOKEN;
 
-// TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
+/** My test account did not have access to Custom Objects, so I followed your documentation and used Company object instead. */
 app.get('/', async (req, res) => {
-    const companies = 'https://api.hubspot.com/crm/v3/objects/companies';
+    const companies = 'https://api.hubspot.com/crm/v3/objects/companies?properties=name,cvr_number,pot_number';
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
@@ -21,8 +25,7 @@ app.get('/', async (req, res) => {
     try {
         const resp = await axios.get(companies, { headers });
         const data = resp.data.results;
-        res.json(data);
-        //res.render('contacts', { title: 'Contacts | HubSpot APIs', data });      
+        res.render('companies', { title: 'Companies | HubSpot APIs', data });      
     } catch (error) {
         console.error(error);
     }
