@@ -30,7 +30,7 @@ app.get('/', async (req, res) => {
     try {
         const resp = await axios.get(companies, { headers });
         const data = resp.data.results;
-        res.render('companies', { title: 'Companies | Martin Hlavacka', data });      
+        res.render('companies', { title: 'All companies', data });      
     } catch (error) {
         console.error(error);
     }
@@ -85,7 +85,7 @@ app.get('/open-cobj/:id', async (req, res) => {
     try {
         const resp = await axios.get(company, { headers });
         const data = resp.data;
-        res.render('edit', { title: 'Companies | Martin Hlavacka', data});      
+        res.render('edit', { title: 'Edit company', data});      
     } catch (error) {
         console.error(error);
     }
