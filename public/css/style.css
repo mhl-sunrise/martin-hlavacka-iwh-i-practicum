@@ -4,10 +4,24 @@ body, * {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 h1 {
     margin: 1rem;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+h2::after {
+    content: " ";
+    height: 2px;
+    width: 30px;
+    background-color: #5656d5;
+    display: block;
+    margin-top: 10px;
 }
 
 .cards {
@@ -20,10 +34,8 @@ h1 {
 .card {
     flex-basis: 31%;
     margin: 1rem 0.4rem;
-    padding: 1rem 0.4rem 2.5rem 0.4rem;
+    padding: 2rem;
     border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
 }
 
 .card__email {
@@ -50,9 +62,20 @@ input[type="text"] {
     padding: .25rem;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
+input[type="submit"],
+button {
+    background-color: #5656d5;
     border: none;
-    padding: .375rem 1rem;
+    padding: 10px 15px;
     margin-top: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.delete {
+    background-color: #cb1f1f;
+    margin-left: 10px;
 }
