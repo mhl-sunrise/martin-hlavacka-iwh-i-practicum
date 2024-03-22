@@ -1,0 +1,16 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body   
+        div.container
+            a(href="/").return ⇦ Return to all companies 
+            div.create
+                h1.createtitle Create new company 
+                form(action="/create-cobj", method="post")
+                    input(type="text" name="name" placeholder="Insert company name" required)
+                    input(type="text" name="pot" placeholder="Insert POT number" required)
+                    input(type="text" name="cvr" placeholder="Insert CVR number" required)
+                    button Create new company

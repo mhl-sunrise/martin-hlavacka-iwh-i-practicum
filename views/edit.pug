@@ -8,7 +8,7 @@ html
         div.container
             a(href="/").return ⇦ Return to all companies 
             div.edit
-                h1 Edit company
+                h1.edittitle Edit company
                 form(action=`/update-cobj/${data.id}`, method="post")
                     small Company name
                     input(type="text" name="name" placeholder="Insert company name" value=data.properties.name required)

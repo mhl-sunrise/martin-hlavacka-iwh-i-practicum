@@ -37,6 +37,12 @@ app.get('/', async (req, res) => {
 });
 
 /** Create new company */
+app.get('/create-cobj', async (req, res) => {
+    res.render('create', { title: 'Create new company'});
+});
+
+
+/** Store new company */
 app.post('/create-cobj', async (req, res) => {
     const update = {
         properties: {
@@ -52,7 +58,7 @@ app.post('/create-cobj', async (req, res) => {
     }
     try {
         const resp = await axios.post(companies, update, { headers });
-        res.redirect('back');
+        res.redirect('/');
     } catch (error) {
         console.error(error);
     }
@@ -109,7 +115,7 @@ app.post('/update-cobj/:id', async (req, res) => {
     try {
         const resp = await axios.patch(company, update, { headers });
         const data = resp.data;
-        res.redirect('back');
+        res.redirect('/');
     } catch (error) {
         console.error(error);
     }
