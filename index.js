@@ -41,7 +41,6 @@ app.get('/create-cobj', async (req, res) => {
     res.render('create', { title: 'Create new company'});
 });
 
-
 /** Store new company */
 app.post('/create-cobj', async (req, res) => {
     const update = {

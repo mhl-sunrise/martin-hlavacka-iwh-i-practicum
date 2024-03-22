@@ -6,7 +6,6 @@ body, * {
     padding: 0;
     box-sizing: border-box;
 }
-
 .container {
     width: 1200px;
     margin: 0px auto;
@@ -14,16 +13,13 @@ body, * {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 h1 {
     margin: 0;
     font-size: 24px;
 }
-
 h2 {
     margin-bottom: 15px;
 }
-
 h2::after {
     content: " ";
     height: 2px;
@@ -32,7 +28,6 @@ h2::after {
     display: block;
     margin-top: 10px;
 }
-
 .card {
     flex-basis: 31%;
     padding: 20px;
@@ -40,11 +35,9 @@ h2::after {
     margin-top: -1px;
     background-color: white;
 }
-
 .card__email {
     font-size: 1rem;
 }
-
 .form-wrapper {
     font-size: 18px;
     max-width: 768px;
@@ -54,17 +47,14 @@ h2::after {
     border-radius: 15px;
     box-shadow: 3px 2px 6px lightgrey;
 }
-
 label, input {
     margin-top: 5px;
     display: block;
     font-size: inherit;
 }
-
 input[type="text"] {
     padding: .25rem;
 }
-
 input[type="submit"],
 button {
     background-color: #5656d5;
@@ -77,17 +67,14 @@ button {
     font-size: 16px;
     margin-top: 20px;
 }
-
 .delete {
     background-color: #cb1f1f;
     margin-left: 10px;
 }
-
 .create, .edit {
     padding: 20px;
     border: solid 1px lightgrey;
 }
-
 .create input,
 .edit input {
     width: 100%;
@@ -96,7 +83,6 @@ button {
     padding: 10px;
     height: auto;
 }
-
 .removal {
     display: inline-block;
 }
@@ -112,14 +98,12 @@ button {
     bottom: 20px;
     left: 150px;
 }
-
 .edit {
     position: relative;
 }
 .card__pot {
     margin-bottom: 5px;
 }
-
 .createbtn {
     float: inline-end;
     background: green;
