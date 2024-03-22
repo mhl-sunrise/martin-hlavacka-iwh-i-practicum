@@ -117,3 +117,6 @@ button {
 .edit {
     position: relative;
 }
+.card__pot {
+    margin-bottom: 5px;
+}

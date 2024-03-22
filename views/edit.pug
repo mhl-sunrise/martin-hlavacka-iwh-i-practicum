@@ -10,8 +10,13 @@ html
             div.edit
                 h1 Edit company
                 form(action=`/update-cobj/${data.id}`, method="post")
+                    small Company name
                     input(type="text" name="name" placeholder="Insert company name" value=data.properties.name required)
+                    br
+                    small POT number
                     input(type="text" name="pot" placeholder="Insert POT number" value=data.properties.pot_number required)
+                    br
+                    small CVR number
                     input(type="text" name="cvr" placeholder="Insert CVR number" value=data.properties.cvr_number required)
                     button Save changes
                 form.removal-flexible(action=`/delete-cobj/${data.id}`, method="post")
